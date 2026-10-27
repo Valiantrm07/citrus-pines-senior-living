@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citrus Pines Senior Living | Warmth, Wellness & Vibrant Living</title>
+    
+    <!-- Google Fonts: Outfits for headings, Inter for high legibility body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for crisp, accessible visual icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pine: {
+                            50: '#f2f7f4',
+                            100: '#e1ede6',
+                            600: '#2d6a4f',
+                            700: '#1e4b37',
+                            800: '#143627',
+                            900: '#0d241a'
+                        },
+                        citrus: {
+                            100: '#fffaed',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309'
+                        },
+                        amberGlow: '#e85d04',
+                        warmCream: '#fdfbf7',
+                        warmGray: '#f4f1ea'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom accessibility focus outlines & aesthetic adjustments */
+        *:focus-visible {
+            outline: 3px solid #d97706 !important;
+            outline-offset: 3px !important;
+        }
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(20, 54, 39, 0.85) 0%, rgba(20, 54, 39, 0.45) 60%, rgba(217, 119, 6, 0.3) 100%);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body class="bg-warmCream text-gray-800 font-sans antialiased selection:bg-citrus-500 selection:text-white">
+
+    <!-- TOP ACCESSIBILITY & CONTACT BAR -->
+    <div class="bg-pine-900 text-amber-100 text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6 text-xs sm:text-sm">
+                <a href="tel:8005550199" class="hover:text-amber-400 transition flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-citrus-500" aria-hidden="true"></i> +1 279-529-2045
+                </a>
+                <span class="hidden sm:inline text-pine-700">|</span>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-citrus-500" aria-hidden="true"></i> 8300 Patton Ave, 95610 Sacramento, CA
+                </span>
+            </div>
+            <div class="flex items-center space-x-4 text-xs sm:text-sm">
+                <button id="fontIncreaseBtn" class="hover:text-amber-400 transition flex items-center gap-1 font-medium bg-pine-800 px-2 py-1 rounded" title="Increase Text Size" aria-label="Increase Text Size">
+                    <i class="fa-solid fa-text-height" aria-hidden="true"></i> Text Size +
+                </button>
+                <a href="#contact" class="hover:text-amber-400 transition flex items-center gap-1">
+                    <i class="fa-solid fa-clock" aria-hidden="true"></i> Hours: 8 AM - 7 PM
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-22 py-3">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-12 h-12 bg-gradient-to-br from-citrus-500 to-amberGlow rounded-full flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                        <i class="fa-solid fa-tree text-white text-2xl" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-2xl sm:text-3xl tracking-tight text-pine-900 block leading-tight">
+                            Citrus Pines
+                        </span>
+                        <span class="text-xs uppercase tracking-widest text-citrus-700 font-semibold block">
+                            Senior Living Community
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2" aria-label="Main Navigation">
+                    <a href="#home" class="px-3 py-2 text-base font-semibold text-gray-700 hover:text-pine-700 hover:bg-pine-50 rounded-lg transition">Home</a>
+                    <a href="#living-options" class="px-3 py-2 text-base font-semibold text-gray-700 hover:text-pine-700 hover:bg-pine-50 rounded-lg transition">Living Options</a>
+                    <a href="#amenities" class="px-3 py-2 text-base font-semibold text-gray-700 hover:text-pine-700 hover:bg-pine-50 rounded-lg transition">Amenities</a>
+                    <a href="#care-levels" class="px-3 py-2 text-base font-semibold text-gray-700 hover:text-pine-700 hover:bg-pine-50 rounded-lg transition">Care Levels</a>
+                    <a href="#floor-plans" class="px-3 py-2 text-base font-semibold text-gray-700 hover:text-pine-700 hover:bg-pine-50 rounded-lg transition">Floor Plans</a>
+                    <a href="#contact" class="px-3 py-2 text-base font-semibold text-gray-700 hover:text-pine-700 hover:bg-pine-50 rounded-lg transition">Contact</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center">
+                    <a href="#schedule-tour" class="bg-citrus-600 hover:bg-citrus-700 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition duration-200 flex items-center gap-2 text-base">
+                        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                        <span>Schedule a Tour</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" type="button" class="lg:hidden p-3 rounded-lg text-pine-900 hover:bg-pine-50 focus:outline-none" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-200 px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="#home" class="mobile-link block px-4 py-3 text-lg font-medium text-gray-800 hover:bg-pine-50 rounded-lg">Home</a>
+            <a href="#living-options" class="mobile-link block px-4 py-3 text-lg font-medium text-gray-800 hover:bg-pine-50 rounded-lg">Living Options</a>
+            <a href="#amenities" class="mobile-link block px-4 py-3 text-lg font-medium text-gray-800 hover:bg-pine-50 rounded-lg">Amenities</a>
+            <a href="#care-levels" class="mobile-link block px-4 py-3 text-lg font-medium text-gray-800 hover:bg-pine-50 rounded-lg">Care Levels</a>
+            <a href="#floor-plans" class="mobile-link block px-4 py-3 text-lg font-medium text-gray-800 hover:bg-pine-50 rounded-lg">Floor Plans</a>
+            <a href="#contact" class="mobile-link block px-4 py-3 text-lg font-medium text-gray-800 hover:bg-pine-50 rounded-lg">Contact Us</a>
+            <a href="#schedule-tour" class="mobile-link block w-full text-center bg-citrus-600 hover:bg-citrus-700 text-white font-bold px-6 py-4 rounded-xl shadow mt-4">
+                <i class="fa-solid fa-calendar-check mr-2"></i> Schedule a Tour
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH QUICK BOOKING FORM -->
+    <section id="home" class="relative min-h-[620px] lg:min-h-[700px] flex items-center bg-pine-900 text-white overflow-hidden">
+        <!-- Hero Background Image -->
+        <img src="images/471681924_587223007258854_5030365273825654938_n.jpg" 
+             alt="Happy active seniors enjoying conversation in a sunlit outdoor patio garden" 
+             class="absolute inset-0 w-full h-full object-cover object-center" />
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content Left -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center gap-2 bg-citrus-500/90 text-pine-900 font-bold px-4 py-1.5 rounded-full text-sm uppercase tracking-wide shadow-sm">
+                        <i class="fa-solid fa-sun"></i> Welcome to Joyful Retirement
+                    </span>
+                    <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight text-shadow">
+                        Where Warmth, Wellness &amp; Community Flourish.
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-amber-50 leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0 text-shadow">
+                        Experience boutique senior living with resort-style dining, 24/7 dedicated care, and vibrant daily activities surrounded by serene pine trees and sunshine.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#schedule-tour" class="bg-citrus-500 hover:bg-citrus-600 text-pine-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 text-lg flex items-center gap-3">
+                            <span>Book a Guided Visit</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#living-options" class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border-2 border-white/40 font-semibold px-8 py-4 rounded-xl transition text-lg">
+                            Explore Living Options
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Interactive Quick Tour Form Right -->
+                <div class="lg:col-span-5 bg-white text-gray-900 p-6 sm:p-8 rounded-3xl shadow-2xl border border-amber-100">
+                    <div class="border-b border-gray-100 pb-4 mb-6">
+                        <h2 class="font-heading text-2xl font-bold text-pine-900">Request Information or Tour</h2>
+                        <p class="text-gray-600 text-sm mt-1">Get custom brochure &amp; floor plan pricing instantly.</p>
+                    </div>
+
+                    <form id="quickTourForm" class="space-y-4">
+                        <div>
+                            <label for="quick-name" class="block text-sm font-semibold text-gray-700 mb-1">Your Full Name *</label>
+                            <input type="text" id="quick-name" required placeholder="e.g. Eleanor Vance" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-citrus-500 focus:border-citrus-500 transition text-base">
+                        </div>
+                        <div>
+                            <label for="quick-email" class="block text-sm font-semibold text-gray-700 mb-1">Email Address *</label>
+                            <input type="email" id="quick-email" required placeholder="eleanor@example.com" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-citrus-500 focus:border-citrus-500 transition text-base">
+                        </div>
+                        <div>
+                            <label for="quick-interest" class="block text-sm font-semibold text-gray-700 mb-1">Care Level of Interest</label>
+                            <select id="quick-interest" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-citrus-500 focus:border-citrus-500 transition text-base bg-white">
+                                <option value="independent">Independent Living</option>
+                                <option value="assisted">Assisted Living</option>
+                                <option value="memory">Memory Care</option>
+                                <option value="undecided">Not sure yet / Exploring</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-pine-700 hover:bg-pine-800 text-white font-bold py-4 rounded-xl shadow-md hover:shadow-lg transition text-base flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Get Free Information Kit
+                        </button>
+                    </form>
+                    <div id="quickFormStatus" class="hidden mt-4 p-4 rounded-xl text-center font-medium"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHT STATS BAR -->
+    <section class="bg-pine-800 text-white py-8 border-t-4 border-citrus-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-2">
+                    <div class="font-heading text-3xl sm:text-4xl font-extrabold text-citrus-400">25+</div>
+                    <div class="text-sm sm:text-base text-gray-200 font-medium">Years of Trusted Care</div>
+                </div>
+                <div class="p-2">
+                    <div class="font-heading text-3xl sm:text-4xl font-extrabold text-citrus-400">100%</div>
+                    <div class="text-sm sm:text-base text-gray-200 font-medium">Chef-Prepared Meals</div>
+                </div>
+                <div class="p-2">
+                    <div class="font-heading text-3xl sm:text-4xl font-extrabold text-citrus-400">24/7</div>
+                    <div class="text-sm sm:text-base text-gray-200 font-medium">On-Site Medical Staff</div>
+                </div>
+                <div class="p-2">
+                    <div class="font-heading text-3xl sm:text-4xl font-extrabold text-citrus-400">4.9 ★</div>
+                    <div class="text-sm sm:text-base text-gray-200 font-medium">Family Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVING OPTIONS SECTION -->
+    <section id="living-options" class="py-20 bg-warmCream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-citrus-700 font-extrabold uppercase tracking-widest text-sm">Tailored Senior Lifestyles</span>
+                <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-pine-900 mt-2">
+                    Find the Perfect Lifestyle Option
+                </h2>
+                <p class="text-gray-600 text-lg mt-4 leading-relaxed">
+                    Every individual has unique needs. Citrus Pines offers customizable care settings designed to promote independence, security, and personal fulfillment.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Independent Living -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col group transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/471670558_587223000592188_5678201874126675718_n.jpg" alt="Modern cozy independent apartment interior" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-pine-800 text-white font-bold text-xs px-3 py-1.5 rounded-full uppercase tracking-wider">
+                            Active &amp; Social
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-heading text-2xl font-bold text-pine-900 mb-3">Independent Living</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Freedom from home maintenance with complete access to fine dining, housekeeping, physical fitness, and exciting community outings.
+                            </p>
+                            <ul class="space-y-3 text-sm text-gray-700 mb-6">
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-citrus-600"></i> Full private kitchens or kitchenettes</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-citrus-600"></i> Weekly housekeeping &amp; linen service</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-citrus-600"></i> Freedom to host family &amp; friends</li>
+                            </ul>
+                        </div>
+                        <a href="#schedule-tour" class="w-full py-3 px-4 bg-pine-50 hover:bg-pine-100 text-pine-800 font-bold text-center rounded-xl transition border border-pine-200">
+                            Learn More <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Assisted Living -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border-2 border-citrus-500 hover:shadow-2xl transition-all duration-300 flex flex-col group transform hover:-translate-y-1 relative">
+                    <div class="absolute -top-3 right-6 bg-citrus-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow">
+                        MOST POPULAR
+                    </div>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/469146796_588091073805884_3747760736990745679_n.jpg" alt="Senior receiving helpful support from caregiver" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-citrus-600 text-white font-bold text-xs px-3 py-1.5 rounded-full uppercase tracking-wider">
+                            Support &amp; Comfort
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-heading text-2xl font-bold text-pine-900 mb-3">Assisted Living</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Personalized assistance with daily routines like medication management, bathing, and mobility—while preserving freedom and dignity.
+                            </p>
+                            <ul class="space-y-3 text-sm text-gray-700 mb-6">
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-citrus-600"></i> 24/7 personalized caregiver support</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-citrus-600"></i> Medication administration &amp; tracking</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-citrus-600"></i> Emergency response in every suite</li>
+                            </ul>
+                        </div>
+                        <a href="#schedule-tour" class="w-full py-3 px-4 bg-citrus-600 hover:bg-citrus-700 text-white font-bold text-center rounded-xl shadow transition">
+                            Schedule a Consultation
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Memory Care -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col group transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/471854797_587222970592191_6177655529528370644_n.jpg" alt="Memory care support specialist assisting senior resident" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-pine-900 text-white font-bold text-xs px-3 py-1.5 rounded-full uppercase tracking-wider">
+                            Specialized Care
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-heading text-2xl font-bold text-pine-900 mb-3">Memory Care</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Specialized, secure neighborhood designed for individuals living with Alzheimer's or dementia. Focused on comfort, routine, and joy.
+                            </p>
+                            <ul class="space-y-3 text-sm text-gray-700 mb-6">
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-citrus-600"></i> Secure, easy-to-navigate garden courtyards</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-citrus-600"></i> Specially trained dementia care specialists</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-citrus-600"></i> Sensory enrichment &amp; cognitive programs</li>
+                            </ul>
+                        </div>
+                        <a href="#schedule-tour" class="w-full py-3 px-4 bg-pine-50 hover:bg-pine-100 text-pine-800 font-bold text-center rounded-xl transition border border-pine-200">
+                            Learn More <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AMENITIES GRID SECTION -->
+    <section id="amenities" class="py-20 bg-warmGray border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-citrus-700 font-extrabold uppercase tracking-widest text-sm">Resort-Style Amenities</span>
+                <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-pine-900 mt-2">
+                    Everything You Need to Thrive
+                </h2>
+                <p class="text-gray-600 text-lg mt-4">
+                    Designed with health, convenience, and joy in mind. Enjoy world-class facilities right outside your front door.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Amenity 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100 flex items-start gap-5">
+                    <div class="w-14 h-14 bg-citrus-100 text-citrus-600 rounded-2xl flex items-center justify-center shrink-0 text-2xl">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-pine-900 mb-2">Resort-Style Dining</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Chef-prepared daily meals crafted with fresh, seasonal ingredients served in our sunlit dining room.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Amenity 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100 flex items-start gap-5">
+                    <div class="w-14 h-14 bg-pine-100 text-pine-700 rounded-2xl flex items-center justify-center shrink-0 text-2xl">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-pine-900 mb-2">Wellness &amp; Fitness Center</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Senior-friendly exercise equipment, guided mobility classes, yoga, and physical therapy rooms.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Amenity 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100 flex items-start gap-5">
+                    <div class="w-14 h-14 bg-citrus-100 text-citrus-600 rounded-2xl flex items-center justify-center shrink-0 text-2xl">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-pine-900 mb-2">Lush Pines &amp; Courtyards</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Paved walking paths, shaded gazebo lounges, raised garden beds, and secure sunny courtyards.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Amenity 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100 flex items-start gap-5">
+                    <div class="w-14 h-14 bg-pine-100 text-pine-700 rounded-2xl flex items-center justify-center shrink-0 text-2xl">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-pine-900 mb-2">24/7 Care &amp; Support</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Licensed nurses and trained caregivers on site round-the-clock for peace of mind.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Amenity 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100 flex items-start gap-5">
+                    <div class="w-14 h-14 bg-citrus-100 text-citrus-600 rounded-2xl flex items-center justify-center shrink-0 text-2xl">
+                        <i class="fa-solid fa-van-shuttle"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-pine-900 mb-2">Scheduled Transportation</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Complimentary chauffeured transportation for doctor appointments, shopping trips, and community outings.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Amenity 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100 flex items-start gap-5">
+                    <div class="w-14 h-14 bg-pine-100 text-pine-700 rounded-2xl flex items-center justify-center shrink-0 text-2xl">
+                        <i class="fa-solid fa-icons"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-pine-900 mb-2">Vibrant Daily Activities</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Art workshops, live music entertainment, book clubs, cooking demos, and social happy hours.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARE LEVELS & PHILOSOPHY SECTION -->
+    <section id="care-levels" class="py-20 bg-warmCream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1581579438747-1dc8d1e2899f?auto=format&fit=crop&w=1000&q=80" alt="Attentive nurse talking warmly with elderly resident" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-citrus-500 text-pine-900 p-6 rounded-2xl shadow-lg max-w-xs hidden sm:block">
+                        <p class="font-heading font-extrabold text-xl">"Care tailored like family."</p>
+                        <p class="text-xs font-semibold mt-1">— Dr. Aris Thorne, Medical Director</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-citrus-700 font-extrabold uppercase tracking-widest text-sm">Personalized Wellness Matrix</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-pine-900">
+                        Care Plans That Evolve With Your Needs
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        At Citrus Pines, we understand that needs change over time. Our progressive care level system allows residents to stay in their beloved community while receiving seamless adjustments to their support plan.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="p-4 bg-white rounded-xl shadow-sm border-l-4 border-citrus-500">
+                            <h3 class="font-bold text-pine-900 text-lg">Level 1: Independent Support</h3>
+                            <p class="text-gray-600 text-sm">Minimal assistance, focused on lifestyle convenience, dining, and social events.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl shadow-sm border-l-4 border-citrus-600">
+                            <h3 class="font-bold text-pine-900 text-lg">Level 2: Moderate Assistance</h3>
+                            <p class="text-gray-600 text-sm">Help with daily dressing, medication management, and mobility guidance.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl shadow-sm border-l-4 border-pine-700">
+                            <h3 class="font-bold text-pine-900 text-lg">Level 3: High Care &amp; Memory Specialization</h3>
+                            <p class="text-gray-600 text-sm">Comprehensive caregiver support, full daily living help, and secure memory engagement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE FLOOR PLAN SHOWCASE -->
+    <section id="floor-plans" class="py-20 bg-pine-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-citrus-400 font-extrabold uppercase tracking-widest text-sm">Spacious Living Spaces</span>
+                <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-2">
+                    Explore Floor Plans
+                </h2>
+                <p class="text-pine-100 text-lg mt-4">
+                    Designed for comfort, security, and effortless accessibility. Browse options below and view full details.
+                </p>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-3 mt-8">
+                    <button data-filter="all" class="tab-btn active px-6 py-3 rounded-full font-bold transition text-sm sm:text-base bg-citrus-500 text-pine-900">
+                        All Layouts
+                    </button>
+                    <button data-filter="studio" class="tab-btn px-6 py-3 rounded-full font-bold transition text-sm sm:text-base bg-pine-800 text-pine-100 hover:bg-pine-700">
+                        Studio Suites
+                    </button>
+                    <button data-filter="1bed" class="tab-btn px-6 py-3 rounded-full font-bold transition text-sm sm:text-base bg-pine-800 text-pine-100 hover:bg-pine-700">
+                        1-Bedroom
+                    </button>
+                    <button data-filter="2bed" class="tab-btn px-6 py-3 rounded-full font-bold transition text-sm sm:text-base bg-pine-800 text-pine-100 hover:bg-pine-700">
+                        2-Bedroom
+                    </button>
+                </div>
+            </div>
+
+            <!-- Floor Plan Cards Grid -->
+            <div id="floorPlanGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Studio -->
+                <div class="floor-card bg-white text-gray-900 rounded-3xl overflow-hidden shadow-xl" data-type="studio">
+                    <div class="bg-warmGray p-6 flex justify-center items-center h-56 border-b border-gray-200">
+                        <!-- Floor plan vector SVG representation -->
+                        <svg class="w-48 h-48 text-pine-800" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="3">
+                            <rect x="20" y="20" width="160" height="160" rx="4" stroke-dasharray="4 4"/>
+                            <rect x="30" y="30" width="80" height="70" fill="#e1ede6"/>
+                            <text x="45" y="70" font-size="12" fill="#1e4b37" stroke="none" font-weight="bold">Main Suite</text>
+                            <rect x="120" y="30" width="50" height="50" fill="#fffaed"/>
+                            <text x="125" y="60" font-size="10" fill="#b45309" stroke="none">Bath</text>
+                            <rect x="30" y="110" width="140" height="50" fill="#f4f1ea"/>
+                            <text x="65" y="140" font-size="12" fill="#666" stroke="none">Kitchenette &amp; Entry</text>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading text-2xl font-bold text-pine-900">The Orange Blossom</h3>
+                            <span class="bg-citrus-100 text-citrus-700 text-xs font-extrabold px-3 py-1 rounded-full">Studio</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Compact, cozy, and easy to navigate with maximum comfort.</p>
+                        <div class="flex justify-between items-center text-sm font-semibold text-pine-800 bg-pine-50 p-3 rounded-xl mb-6">
+                            <span><i class="fa-solid fa-ruler-combined text-citrus-600 mr-1"></i> 410 Sq. Ft.</span>
+                            <span><i class="fa-solid fa-bath text-citrus-600 mr-1"></i> 1 Accessible Bath</span>
+                        </div>
+                        <button onclick="openFloorModal('The Orange Blossom', 'Studio Suite', '410 Sq. Ft.', '$3,400 / month', 'Includes kitchenette, walk-in emergency shower, individual climate control, and large sunlit window overlooking the gardens.')" class="w-full bg-pine-700 hover:bg-pine-800 text-white font-bold py-3 rounded-xl transition">
+                            View Plan Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: 1-Bedroom -->
+                <div class="floor-card bg-white text-gray-900 rounded-3xl overflow-hidden shadow-xl" data-type="1bed">
+                    <div class="bg-warmGray p-6 flex justify-center items-center h-56 border-b border-gray-200">
+                        <svg class="w-48 h-48 text-pine-800" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="3">
+                            <rect x="15" y="15" width="170" height="170" rx="4"/>
+                            <rect x="25" y="25" width="85" height="85" fill="#e1ede6"/>
+                            <text x="35" y="70" font-size="11" fill="#1e4b37" stroke="none" font-weight="bold">Living Room</text>
+                            <rect x="115" y="25" width="60" height="85" fill="#fffaed"/>
+                            <text x="122" y="70" font-size="11" fill="#b45309" stroke="none" font-weight="bold">Bedroom</text>
+                            <rect x="25" y="115" width="150" height="55" fill="#f4f1ea"/>
+                            <text x="50" y="148" font-size="11" fill="#666" stroke="none">Kitchen &amp; Accessible Bath</text>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading text-2xl font-bold text-pine-900">The Sunset Suite</h3>
+                            <span class="bg-citrus-100 text-citrus-700 text-xs font-extrabold px-3 py-1 rounded-full">1-Bedroom</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Separate living area and bedroom for relaxed daily independence.</p>
+                        <div class="flex justify-between items-center text-sm font-semibold text-pine-800 bg-pine-50 p-3 rounded-xl mb-6">
+                            <span><i class="fa-solid fa-ruler-combined text-citrus-600 mr-1"></i> 620 Sq. Ft.</span>
+                            <span><i class="fa-solid fa-bath text-citrus-600 mr-1"></i> 1 Accessible Bath</span>
+                        </div>
+                        <button onclick="openFloorModal('The Sunset Suite', '1-Bedroom Apartment', '620 Sq. Ft.', '$4,200 / month', 'Features a separate master bedroom, spacious living area, full kitchenette with refrigerator, walk-in closet, and garden patio access.')" class="w-full bg-pine-700 hover:bg-pine-800 text-white font-bold py-3 rounded-xl transition">
+                            View Plan Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: 2-Bedroom -->
+                <div class="floor-card bg-white text-gray-900 rounded-3xl overflow-hidden shadow-xl" data-type="2bed">
+                    <div class="bg-warmGray p-6 flex justify-center items-center h-56 border-b border-gray-200">
+                        <svg class="w-48 h-48 text-pine-800" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="3">
+                            <rect x="15" y="15" width="170" height="170" rx="4"/>
+                            <rect x="25" y="25" width="70" height="70" fill="#e1ede6"/>
+                            <text x="30" y="60" font-size="10" fill="#1e4b37" stroke="none" font-weight="bold">Bed 1</text>
+                            <rect x="100" y="25" width="75" height="70" fill="#e1ede6"/>
+                            <text x="110" y="60" font-size="10" fill="#1e4b37" stroke="none" font-weight="bold">Bed 2</text>
+                            <rect x="25" y="100" width="150" height="70" fill="#fffaed"/>
+                            <text x="60" y="140" font-size="11" fill="#b45309" stroke="none" font-weight="bold">Great Living Room &amp; Baths</text>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading text-2xl font-bold text-pine-900">The Royal Cypress</h3>
+                            <span class="bg-citrus-100 text-citrus-700 text-xs font-extrabold px-3 py-1 rounded-full">2-Bedroom</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Expansive residence with dual bedrooms, ideal for couples or guest space.</p>
+                        <div class="flex justify-between items-center text-sm font-semibold text-pine-800 bg-pine-50 p-3 rounded-xl mb-6">
+                            <span><i class="fa-solid fa-ruler-combined text-citrus-600 mr-1"></i> 890 Sq. Ft.</span>
+                            <span><i class="fa-solid fa-bath text-citrus-600 mr-1"></i> 2 Bathrooms</span>
+                        </div>
+                        <button onclick="openFloorModal('The Royal Cypress', '2-Bedroom Villa Suite', '890 Sq. Ft.', '$5,600 / month', 'Our premier layout. Includes two master bedrooms, two full safety-equipped bathrooms, private balcony, full kitchen counter, and ample storage space.')" class="w-full bg-pine-700 hover:bg-pine-800 text-white font-bold py-3 rounded-xl transition">
+                            View Plan Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCHEDULE A TOUR & CONTACT SECTION -->
+    <section id="schedule-tour" class="py-20 bg-warmCream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-amber-100">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    
+                    <!-- Left Banner Info -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-pine-800 to-pine-900 text-white p-8 sm:p-12 flex flex-col justify-between">
+                        <div>
+                            <span class="text-citrus-400 font-extrabold uppercase tracking-widest text-xs">We'd love to meet you</span>
+                            <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-2 mb-6">
+                                Schedule Your Personal Tour
+                            </h2>
+                            <p class="text-pine-100 leading-relaxed text-base mb-8">
+                                Taste our chef's signature dishes, walk through our courtyard, and experience the warm, friendly atmosphere firsthand.
+                            </p>
+
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 bg-citrus-500/20 text-citrus-400 rounded-xl flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-map-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Location</h4>
+                                        <p class="text-sm text-pine-200">8300 Patton Ave, 95610 Sacramento, CA</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 bg-citrus-500/20 text-citrus-400 rounded-xl flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Direct Line</h4>
+                                        <p class="text-sm text-pine-200">+1 279-529-2045</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 bg-citrus-500/20 text-citrus-400 rounded-xl flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Email Us</h4>
+                                        <p class="text-sm text-pine-200">citruspines83@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 pt-6 border-t border-pine-700/60 text-xs text-pine-300">
+                            * Tours are available Monday through Sunday, 9:00 AM – 5:00 PM. Complimentary lunch provided upon advance request.
+                        </div>
+                    </div>
+
+                    <!-- Right Booking Form -->
+                    <div id="contact" class="lg:col-span-7 p-8 sm:p-12">
+                        <h3 class="font-heading text-2xl sm:text-3xl font-bold text-pine-900 mb-2">Book a Tour &amp; Lunch</h3>
+                        <p class="text-gray-600 text-sm mb-8">Fill out the form below and our Senior Living Advisor will contact you within 24 hours.</p>
+
+                        <form id="fullTourForm" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="first-name" class="block text-sm font-semibold text-gray-700 mb-1">First Name *</label>
+                                    <input type="text" id="first-name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-citrus-500 focus:border-citrus-500 transition">
+                                </div>
+                                <div>
+                                    <label for="last-name" class="block text-sm font-semibold text-gray-700 mb-1">Last Name *</label>
+                                    <input type="text" id="last-name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-citrus-500 focus:border-citrus-500 transition">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="tour-email" class="block text-sm font-semibold text-gray-700 mb-1">Email Address *</label>
+                                    <input type="email" id="tour-email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-citrus-500 focus:border-citrus-500 transition">
+                                </div>
+                                <div>
+                                    <label for="tour-phone" class="block text-sm font-semibold text-gray-700 mb-1">Phone Number *</label>
+                                    <input type="tel" id="tour-phone" required placeholder="(555) 000-0000" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-citrus-500 focus:border-citrus-500 transition">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="preferred-date" class="block text-sm font-semibold text-gray-700 mb-1">Preferred Tour Date</label>
+                                    <input type="date" id="preferred-date" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-citrus-500 focus:border-citrus-500 transition bg-white">
+                                </div>
+                                <div>
+                                    <label for="care-type" class="block text-sm font-semibold text-gray-700 mb-1">Care Option</label>
+                                    <select id="care-type" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-citrus-500 focus:border-citrus-500 transition bg-white">
+                                        <option>Independent Living</option>
+                                        <option>Assisted Living</option>
+                                        <option>Memory Care</option>
+                                        <option>Respite / Short Stay</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="tour-notes" class="block text-sm font-semibold text-gray-700 mb-1">Questions or Special Accommodation Requests</label>
+                                <textarea id="tour-notes" rows="3" placeholder="Tell us about your timeline, special dietary needs for lunch, or mobility questions..." class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-citrus-500 focus:border-citrus-500 transition"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-citrus-600 hover:bg-citrus-700 text-white font-bold py-4 rounded-xl shadow-lg transition text-lg flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                Confirm Tour Request
+                            </button>
+                        </form>
+
+                        <div id="fullFormStatus" class="hidden mt-6 p-4 rounded-2xl text-center font-semibold text-base"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-pine-900 text-white border-t border-pine-800 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Brand Info -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-citrus-500 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-tree text-white text-xl"></i>
+                        </div>
+                        <span class="font-heading font-extrabold text-2xl text-white">Citrus Pines</span>
+                    </div>
+                    <p class="text-pine-200 text-sm leading-relaxed mb-6">
+                        Providing warm, compassionate, and enriching senior living in Sunnyvale for over 25 years.
+                    </p>
+                    <div class="flex space-x-3 text-citrus-400">
+                        <a href="#" class="w-10 h-10 bg-pine-800 hover:bg-citrus-600 hover:text-white rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-pine-800 hover:bg-citrus-600 hover:text-white rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-pine-800 hover:bg-citrus-600 hover:text-white rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg text-citrus-400 mb-4">Quick Navigation</h4>
+                    <ul class="space-y-2 text-sm text-pine-200">
+                        <li><a href="#home" class="hover:text-white transition">Home Page</a></li>
+                        <li><a href="#living-options" class="hover:text-white transition">Living Options</a></li>
+                        <li><a href="#amenities" class="hover:text-white transition">Resort Amenities</a></li>
+                        <li><a href="#care-levels" class="hover:text-white transition">Care Levels</a></li>
+                        <li><a href="#floor-plans" class="hover:text-white transition">Floor Plans &amp; Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Living Options -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg text-citrus-400 mb-4">Care &amp; Living</h4>
+                    <ul class="space-y-2 text-sm text-pine-200">
+                        <li><a href="#living-options" class="hover:text-white transition">Independent Living</a></li>
+                        <li><a href="#living-options" class="hover:text-white transition">Assisted Living</a></li>
+                        <li><a href="#living-options" class="hover:text-white transition">Memory Care Community</a></li>
+                        <li><a href="#living-options" class="hover:text-white transition">Respite &amp; Short Stays</a></li>
+                        <li><a href="#amenities" class="hover:text-white transition">Dining &amp; Nutrition</a></li>
+                    </ul>
+                </div>
+
+                <!-- Emergency & Licensing -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg text-citrus-400 mb-4">Licensing &amp; Contact</h4>
+                    <p class="text-xs text-pine-200 mb-3">State License ID: #435209118</p>
+                    <p class="text-xs text-pine-200 leading-relaxed mb-4">
+                        8300 Patton Ave.<br>Sacramento, CA 95610
+                    </p>
+                    <a href="tel:8005550199" class="inline-block bg-pine-800 hover:bg-pine-700 text-citrus-400 font-bold px-4 py-2 rounded-lg text-sm transition">
+                        <i class="fa-solid fa-phone mr-1"></i> Call (+1) 279-529-2045
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-pine-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-pine-300 gap-4">
+                <p>&copy; 2026 Citrus Pines Senior Living. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                    <a href="#" class="hover:underline">Terms of Service</a>
+                    <a href="#" class="hover:underline">Accessibility Statement</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOOR PLAN DETAILS MODAL -->
+    <div id="floorModal" class="fixed inset-0 bg-pine-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-fade-in text-gray-900">
+            <button onclick="closeFloorModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full flex items-center justify-center text-lg transition" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span id="modalCategory" class="text-xs font-bold uppercase tracking-wider text-citrus-700 bg-citrus-100 px-3 py-1 rounded-full"></span>
+            <h3 id="modalTitle" class="font-heading text-3xl font-bold text-pine-900 mt-3 mb-2"></h3>
+            
+            <div class="flex items-center space-x-4 mb-4 text-sm font-semibold text-pine-700">
+                <span id="modalSqFt"><i class="fa-solid fa-ruler-combined text-citrus-600 mr-1"></i></span>
+                <span id="modalPrice" class="bg-pine-50 px-3 py-1 rounded-lg border border-pine-200"></span>
+            </div>
+
+            <p id="modalDesc" class="text-gray-600 text-sm leading-relaxed mb-6"></p>
+
+            <div class="bg-warmGray p-4 rounded-xl mb-6 text-sm space-y-2">
+                <div class="font-bold text-pine-900 mb-1">Standard Suite Features:</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-citrus-600 text-xs"></i> Emergency pull-cords &amp; wearable pendant ready</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-citrus-600 text-xs"></i> Wheelchair accessible doorway &amp; shower</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-citrus-600 text-xs"></i> Individual thermostat controls</div>
+            </div>
+
+            <div class="flex gap-3">
+                <a href="#schedule-tour" onclick="closeFloorModal()" class="flex-1 bg-citrus-600 hover:bg-citrus-700 text-white text-center font-bold py-3.5 rounded-xl transition">
+                    Schedule Tour for This Plan
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTING WITH WEBSITE -->
+    <script>
+        // Toggle Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-2xl';
+            }
+        });
+
+        // Close mobile menu when clicking navigation links
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            });
+        });
+
+        // Interactive Text Resizer for accessibility
+        let isLargeText = false;
+        const fontIncreaseBtn = document.getElementById('fontIncreaseBtn');
+        fontIncreaseBtn.addEventListener('click', () => {
+            isLargeText = !isLargeText;
+            if (isLargeText) {
+                document.body.style.fontSize = '115%';
+                fontIncreaseBtn.classList.add('bg-citrus-600');
+            } else {
+                document.body.style.fontSize = '100%';
+                fontIncreaseBtn.classList.remove('bg-citrus-600');
+            }
+        });
+
+        // Interactive Floor Plan Filter Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const floorCards = document.querySelectorAll('.floor-card');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active styling from all buttons
+                tabBtns.forEach(b => {
+                    b.classList.remove('bg-citrus-500', 'text-pine-900');
+                    b.classList.add('bg-pine-800', 'text-pine-100');
+                });
+                // Add active styling to clicked button
+                btn.classList.remove('bg-pine-800', 'text-pine-100');
+                btn.classList.add('bg-citrus-500', 'text-pine-900');
+
+                const filter = btn.getAttribute('data-filter');
+
+                floorCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-type') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Floor Plan Details Modal Logic
+        const modal = document.getElementById('floorModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalSqFt = document.getElementById('modalSqFt');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDesc = document.getElementById('modalDesc');
+
+        function openFloorModal(title, category, sqft, price, desc) {
+            modalTitle.textContent = title;
+            modalCategory.textContent = category;
+            modalSqFt.innerHTML = `<i class="fa-solid fa-ruler-combined text-citrus-600 mr-1"></i> ${sqft}`;
+            modalPrice.textContent = price;
+            modalDesc.textContent = desc;
+            modal.classList.remove('hidden');
+        }
+
+        function closeFloorModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Close modal when clicking background overlay
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeFloorModal();
+            }
+        });
+
+        // Quick Tour Form Submission Logic
+        const quickForm = document.getElementById('quickTourForm');
+        const quickStatus = document.getElementById('quickFormStatus');
+
+        quickForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            quickStatus.classList.remove('hidden', 'bg-red-100', 'text-red-800');
+            quickStatus.classList.add('bg-pine-100', 'text-pine-800');
+            quickStatus.innerHTML = '<i class="fa-solid fa-circle-check text-citrus-600 mr-2"></i> Thank you! Your brochure kit has been sent to your email.';
+            quickForm.reset();
+        });
+
+        // Full Schedule Tour Form Submission Logic
+        const fullForm = document.getElementById('fullTourForm');
+        const fullStatus = document.getElementById('fullFormStatus');
+
+        fullForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            fullStatus.classList.remove('hidden', 'bg-red-100', 'text-red-800');
+            fullStatus.classList.add('bg-citrus-100', 'text-pine-900', 'border', 'border-citrus-400');
+            fullStatus.innerHTML = '🎉 <strong>Tour Requested Successfully!</strong> Our Senior Living Advisor will call you within 24 hours to confirm your lunch reservation.';
+            fullForm.reset();
+        });
+    </script>
+</body>
+</html>
